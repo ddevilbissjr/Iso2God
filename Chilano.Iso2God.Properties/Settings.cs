@@ -88,6 +88,21 @@ internal sealed class Settings : ApplicationSettingsBase
         }
     }
 
+    [DefaultSettingValue("Hdd1/Content/0000000000000000")]
+    [UserScopedSetting]
+    [DebuggerNonUserCode]
+    public string FtpPath
+    {
+        get
+        {
+            return (string)this["FtpPath"];
+        }
+        set
+        {
+            this["FtpPath"] = value;
+        }
+    }
+
     [DebuggerNonUserCode]
     [DefaultSettingValue("21")]
     [UserScopedSetting]

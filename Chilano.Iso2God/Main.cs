@@ -574,9 +574,10 @@ public class Main : Form
                 string user = Properties.Settings.Default["FtpUser"].ToString();
                 string pass = Properties.Settings.Default["FtpPass"].ToString();
                 string port = Properties.Settings.Default["FtpPort"].ToString();
+                string path = Properties.Settings.Default["FtpPath"].ToString();
                 string gameDirectory = isoEntry.Options.Layout.Path;
                 _ = isoEntry.ID.ContainerID;
-                ftp.RunWorkerAsync(new FtpUploaderArgs(ip, user, pass, port, gameDirectory, isoEntry.ID.ContainerID, isoEntry.Destination, isoEntry.Platform));
+                ftp.RunWorkerAsync(new FtpUploaderArgs(ip, user, pass, port, gameDirectory, path, isoEntry.ID.ContainerID, isoEntry.Destination, isoEntry.Platform));
                 ftpCheck.Enabled = false;
                 return;
             }
@@ -1009,15 +1010,15 @@ public class Main : Form
         string message = "";
         if (!File.Exists(file_listxbox))
         {
-            message += "• " + file_listxbox + " is missing, Xbox game titles will not be corrected.\n";
+            message += "ï¿½ " + file_listxbox + " is missing, Xbox game titles will not be corrected.\n";
         }
         if (!File.Exists(file_listxbox360))
         {
-            message += "• " + file_listxbox360 + " is missing, Xbox360 game titles will not be corrected.\n";
+            message += "ï¿½ " + file_listxbox360 + " is missing, Xbox360 game titles will not be corrected.\n";
         }
         if (!File.Exists(pathXT))
         {
-            message += "• " + file_xextool + " is missing, Xbox360 thumbnail extraction will not work.\n";
+            message += "ï¿½ " + file_xextool + " is missing, Xbox360 thumbnail extraction will not work.\n";
         }
 
         if (message != "")

@@ -36,22 +36,23 @@ public class FtpUploader : BackgroundWorker
             return;
         }
 
-        string text = ((args.Platform == IsoEntryPlatform.Xbox360) ? "00007000" : "00005000");
+        string text = (args.Platform == IsoEntryPlatform.Xbox360) ? "00007000" : "00005000";
         string text2 = args.SourcePath + args.GameDirectory + Path.DirectorySeparatorChar + text + Path.DirectorySeparatorChar;
         ftp.ServerAddress = args.Ip;
         ftp.UserName = args.User;
         ftp.Password = args.Pass;
         ftp.AutoLogin = true;
+
         try
-        {
-            ftp.Connect();
-        }
-        catch (Exception item)
-        {
-            Errors.Add(item);
-            return;
-        }
-        ftp.ChangeWorkingDirectory("Hdd1/Content/0000000000000000");
+            {
+                ftp.Connect();
+            }
+            catch (Exception item)
+            {
+                Errors.Add(item);
+                return;
+            }
+        ftp.ChangeWorkingDirectory(args.ftpPath);
         // in case TitleDirectory has subfolders, mkdir and chdir recursively
         string[] TitleDirectories = args.GameDirectory.Split(Path.DirectorySeparatorChar);
         foreach (string subDirectory in TitleDirectories)
