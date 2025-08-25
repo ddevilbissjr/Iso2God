@@ -10,11 +10,14 @@ public class FtpTesterArgs
 
     public string Port;
 
-    public FtpTesterArgs(string Ip, string User, string Pass, string Port)
+    public string ftpPath;
+
+    public FtpTesterArgs(string Ip, string User, string Pass, string Port, string ftpPath)
     {
         this.Ip = Ip;
         this.User = User;
         this.Pass = Pass;
         this.Port = Port;
+        this.ftpPath = ftpPath;
     }
 }

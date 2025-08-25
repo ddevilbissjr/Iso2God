@@ -41,10 +41,12 @@ public class FtpTester : BackgroundWorker
         ftp.ServerAddress = args.Ip;
         ftp.UserName = args.User;
         ftp.Password = args.Pass;
+        ftp.ServerPort = int.Parse(args.Port);
         ftp.AutoLogin = true;
         try
         {
             ftp.Connect();
+            ftp.DirectoryExists(args.ftpPath);
         }
         catch (Exception item)
         {

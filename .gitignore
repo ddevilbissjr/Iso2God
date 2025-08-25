@@ -6,3 +6,5 @@ obj/*
 *.db
 *.tsv
 *.xlsx
+.vscode/launch.json
+.vscode/tasks.json

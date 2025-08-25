@@ -577,7 +577,7 @@ public class Main : Form
                 string path = Properties.Settings.Default["FtpPath"].ToString();
                 string gameDirectory = isoEntry.Options.Layout.Path;
                 _ = isoEntry.ID.ContainerID;
-                ftp.RunWorkerAsync(new FtpUploaderArgs(ip, user, pass, port, gameDirectory, path, isoEntry.ID.ContainerID, isoEntry.Destination, isoEntry.Platform));
+                ftp.RunWorkerAsync(new FtpUploaderArgs(ip, user, pass, port, path, gameDirectory, isoEntry.ID.ContainerID, isoEntry.Destination, isoEntry.Platform));
                 ftpCheck.Enabled = false;
                 return;
             }

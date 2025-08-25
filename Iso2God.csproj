@@ -7,6 +7,17 @@
     <TargetFramework>net481</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
+    <Configuration>Debug</Configuration>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
     <LangVersion>11.0</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -15,6 +26,9 @@
     <RootNamespace />
     <UserSecretsId>14bdbf89-6efa-4b14-b876-03a958a8fcf7</UserSecretsId>
   </PropertyGroup>
+  <PropertyGroup>
+    <GenerateResourceUsePreserializedResources>True</GenerateResourceUsePreserializedResources>
+  </PropertyGroup>  
   <ItemGroup>
     <EmbeddedResource Remove="EnterpriseDT.Net.Ftp.FTPConnection.resx" />
   </ItemGroup>
@@ -50,5 +64,8 @@
     <None Update="xextool.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Resources.Extensions" Version="9.0.8" />
   </ItemGroup>
 </Project>

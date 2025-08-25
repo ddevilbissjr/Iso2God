@@ -41,6 +41,8 @@ public class FtpUploader : BackgroundWorker
         ftp.ServerAddress = args.Ip;
         ftp.UserName = args.User;
         ftp.Password = args.Pass;
+        ftp.ServerPort = int.Parse(args.Port);
+        ftp.ConnectMode = FTPConnectMode.ACTIVE;
         ftp.AutoLogin = true;
 
         try
@@ -52,6 +54,7 @@ public class FtpUploader : BackgroundWorker
                 Errors.Add(item);
                 return;
             }
+        
         ftp.ChangeWorkingDirectory(args.ftpPath);
         // in case TitleDirectory has subfolders, mkdir and chdir recursively
         string[] TitleDirectories = args.GameDirectory.Split(Path.DirectorySeparatorChar);

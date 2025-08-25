@@ -378,10 +378,11 @@ public class Settings : Form
         string user = txtFtpUser.Text;
         string pass = txtFtpPass.Text;
         string port = txtFtpPort.Text;
+        string path = txtFtpPath.Text;
         ftp = new FtpTester();
         ftp.WorkerSupportsCancellation = true;
         ftp.RunWorkerCompleted += ftp_RunWorkerCompleted;
-        ftp.RunWorkerAsync(new FtpTesterArgs(ip, user, pass, port));
+        ftp.RunWorkerAsync(new FtpTesterArgs(ip, user, pass, port, path));
         btnTest.Text = "Testing...";
         btnTest.Enabled = false;
     }
